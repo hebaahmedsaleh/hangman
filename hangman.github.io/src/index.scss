@@ -1,0 +1,28 @@
+body {
+margin: 0;
+
+main {
+  width: 100%;
+  background: url(./assets/images/background-desktop.svg);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  #app-home, app-game, app-game-display {
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10%;
+  }
+
+  app-game-display {
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+
+}
+
+}
