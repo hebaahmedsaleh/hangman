@@ -1,21 +1,30 @@
-import "./App.scss";
-import Logo from "./assets/images/logo.svg";
-import PlayLogo from "./assets/images/icon-play.svg";
+import React from "react";
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+} from "react-router-dom";
+import Home from "./HomePage";
+import Layout from "./Layout";
+import HowToPlay from "./HowToPlay";
+import CategoryGamePage from "./CategoryGamePage";
 
-function App() {
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<Layout />}>
+      <Route index element={<Home />} />
+      <Route path="how-to-play" element={<HowToPlay />} />
+      <Route path="game" element={<CategoryGamePage />} />
+    </Route>
+  )
+);
+
+function App({ routes }) {
   return (
-    <main>
-      <div className="content">
-        <img className="title" src={Logo} />
-        <div className="play__btn__container">
-          <img src={PlayLogo} alt="icon-play" />
-        </div>
-
-        <button role="link" className="button">
-          <div className="hOWTOPLAY">How to play </div>
-        </button>
-      </div>
-    </main>
+    <>
+      <RouterProvider router={router} />
+    </>
   );
 }
 
