@@ -1,12 +1,10 @@
-import "./HomePage.scss";
-import Logo from "./assets/images/logo.svg";
-import PlayLogo from "./assets/images/icon-play.svg";
-
 import { Link } from "react-router-dom";
 
-function HomePage() {
-  console.log("aa");
+import "./index.scss";
+import Logo from "../../assets/images/logo.svg";
+import PlayLogo from "../../assets/images/icon-play.svg";
 
+function HomePage() {
   return (
     <div className="content">
       <img className="title" src={Logo} />

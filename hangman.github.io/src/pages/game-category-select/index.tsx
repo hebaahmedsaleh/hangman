@@ -1,4 +1,4 @@
-import "./HomePage.scss";
+import "./index.scss";
 
 function CategoryGamePage() {
   return <div>Game</div>;

@@ -5,17 +5,17 @@ import {
   createRoutesFromElements,
   RouterProvider,
 } from "react-router-dom";
-import Home from "./HomePage";
+import Home from "./pages/home";
 import Layout from "./Layout";
-import HowToPlay from "./HowToPlay";
-import CategoryGamePage from "./CategoryGamePage";
+import HowToPlay from "./pages/how-to-play";
+import GameCategorySelect from "./pages/game-category-select";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
       <Route path="how-to-play" element={<HowToPlay />} />
-      <Route path="game" element={<CategoryGamePage />} />
+      <Route path="game" element={<GameCategorySelect />} />
     </Route>
   )
 );

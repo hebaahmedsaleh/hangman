@@ -1,7 +1,7 @@
-import "./HowToPlay.scss";
+import "./index.scss";
 
-import HowToPlayLogo from "./assets/images/How-to-play.svg";
-import BackIcon from "./assets/images/icon-back.svg";
+import HowToPlayLogo from "../../assets/images/How-to-play.svg";
+import BackIcon from "../../assets/images/icon-back.svg";
 
 import { Link } from "react-router-dom";
 
