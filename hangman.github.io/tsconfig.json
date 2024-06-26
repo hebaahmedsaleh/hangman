@@ -7,5 +7,29 @@
     {
       "path": "./tsconfig.node.json"
     }
-  ]
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@assets/*": ["src/assets/*"]
+    }
+  }
 }
+
+
+
+// {
+//   "files": [],
+//   "compilerOptions": {
+//     "baseUrl": ".",
+//     "paths": {
+//       "@/*": ["src/*"],
+//       "@components/*": ["src/components/*"],
+//       "@assets/*": ["src/assets/*"]
+//     }
+//   },
+//   "include": ["src"],
+//   "references": [{ "path": "./tsconfig.node.json" }, { "path": "./tsconfig.app.json" }]
+// }

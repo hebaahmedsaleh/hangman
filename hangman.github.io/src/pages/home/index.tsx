@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
 import "./index.scss";
-import Logo from "../../assets/images/logo.svg";
-import PlayLogo from "../../assets/images/icon-play.svg";
+import Logo from "@assets/images/logo.svg";
+import PlayLogo from "@assets/images/icon-play.svg";
 
 function HomePage() {
   return (

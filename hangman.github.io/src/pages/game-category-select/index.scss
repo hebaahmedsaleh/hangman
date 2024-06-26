@@ -1,6 +1,6 @@
 section {
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
     width: 80%;
     // max-width: 80%;
     // padding-block: 5%;
@@ -9,6 +9,7 @@ section {
       display: flex;
       align-items: center;
       margin-bottom: 3rem;
+      flex-direction: row;
   
       .back__btn__container {
         background-image: linear-gradient(to bottom, #fe71fe 0%, #7199ff 100%),
@@ -37,6 +38,7 @@ section {
       flex-wrap: wrap;
       gap: 1.875rem;
       justify-content: start;
+      flex-direction: row;
   
   
     .category__card {
@@ -53,7 +55,7 @@ section {
       height: 6.875rem;
       cursor: pointer;
       border: 2px solid #243041;
-  
+      text-decoration: none;
       .description {
         font-size: 2rem;
         font-weight: 500;

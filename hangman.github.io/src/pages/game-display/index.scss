@@ -1,0 +1,60 @@
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 80%;
+
+    .char__container {
+      width: 109px;
+      height: 109px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 24px;
+      background-color: #2463ff;
+      overflow: hidden;
+      box-shadow: inset 0px 1px 0px 6px #3c74ff, inset 0px -2px 0px 3px #140e66;
+      color: #fff;
+      font-size: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-transform: uppercase;
+    }
+
+    .word__container {
+      width: 109px;
+      align-self: stretch;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 24px;
+      background-color: #fff;
+      color: #261676;
+      font-size: 48px;
+      line-height: 120%;
+      font-family: Mouse Memoirs, system-ui, -apple-system, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-align: center;
+      align-items: center;
+      white-space: nowrap;
+      flex-direction: column;
+      cursor: pointer;
+
+      &:hover:not(:disabled) {
+        background-color: #3c74ff;
+        color: #fff;
+      }
+
+      &:disabled {
+        background-color: transparent;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
