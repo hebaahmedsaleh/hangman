@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import { data } from "../../../data";
 
@@ -55,7 +55,6 @@ const GameDisplay = () => {
     else {
       setLifes(lifes - 1);
     }
-    console.log({ selectedAlphabets });
   };
   const listItems = alphabet.map((char) => (
     <button
