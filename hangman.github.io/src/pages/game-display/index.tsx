@@ -8,7 +8,7 @@ import CategoryLogo from "@assets/images/pick_category.svg";
 
 import "./index.scss";
 
-function GameDisplay() {
+const GameDisplay = () => {
   const catObjects = Object.keys(data.categories).map((name, index) => ({
     name,
     id: index,
@@ -34,18 +34,13 @@ function GameDisplay() {
 
   const [words, setWords] = useState(randomElement);
 
-  console.log({ randomOption });
+  console.log({ randomElement });
 
-  function onClick(char: string) {
+  const onClick = (char: string) => {
     // both scenario
-    if (selectedAlphabets.includes(char)) {
-      return;
-    }
     setSelectedAlphabets([...selectedAlphabets, char]);
     // good scenario
     if (words?.find((elem) => elem.char.toLowerCase() === char.toLowerCase())) {
-      console.log("s");
-
       const test = words.map((elem) => {
         if (elem.char === char) {
           return {
@@ -61,13 +56,7 @@ function GameDisplay() {
       setLifes(lifes - 1);
     }
     console.log({ selectedAlphabets });
-  }
-  // this.randomElement = test.map((char: string) => ({
-  //   char: char.toLowerCase(),
-  //   guessed: false,
-  // }));
-  // }
-
+  };
   const listItems = alphabet.map((char) => (
     <button
       onClick={() => onClick(char)}
@@ -79,24 +68,30 @@ function GameDisplay() {
     </button>
   ));
 
+  const guessedWord = words?.map((item, index) => {
+    if (item.char == " ") {
+      return (
+        <div
+          key={index}
+          style={{ visibility: "hidden", height: "109px", width: "109px" }}
+        />
+      );
+    } else {
+      return (
+        <div className="char__container" key={index}>
+          <div> {item.guessed ? item.char : ""} </div>
+        </div>
+      );
+    }
+  });
+
   return (
     <div style={{ display: "flex" }}>
       <div style={{ color: "#fff", fontSize: 50 }}>{lifes} </div>
+      <section className="alphabet__container"> {guessedWord}</section>
       <section className="alphabet__container"> {listItems}</section>
     </div>
   );
-}
+};
 
 export default GameDisplay;
-
-// <div *ngFor="let item of randomElement; let i = index">
-//   <div *ngIf="item.char !== ' '" class="char__container">
-//     {{ item.guessed ? item.char : "" }}
-//   </div>
-
-//   <div
-//     *ngIf="item.char === ' '"
-//     class="word__container"
-//     style="background-color: transparent"
-//   ></div>
-// </div>
