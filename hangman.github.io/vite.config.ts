@@ -4,7 +4,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/hangman.github.io",
+  base: "/HANGMAN.GITHUB.IO/",
   plugins: [react()],
   resolve: {
     alias: {
