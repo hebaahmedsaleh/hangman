@@ -1,5 +1,4 @@
-import { element } from "./../node_modules/@types/prop-types/index.d";
-import React from "react";
+// import React from "react";
 import {
   Route,
   createBrowserRouter,
@@ -23,7 +22,7 @@ const router = createBrowserRouter(
   )
 );
 
-function App({ routes }) {
+function App() {
   return (
     <>
       <RouterProvider router={router} />
