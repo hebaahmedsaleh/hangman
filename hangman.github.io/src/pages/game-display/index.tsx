@@ -1,20 +1,23 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
+import { MenuModal } from "../menu-modal";
 import { data } from "../../../data";
 
-// import BackLogo from "@assets/images/icon-back.svg";
-// import CategoryLogo from "@assets/images/pick_category.svg";
+import HeartLogo from "@assets/images/icon-heart.svg";
+import MenuLogo from "@assets/images/icon-menu.svg";
 
 import "./index.scss";
 
-const GameDisplay = () => {
+function GameDisplay() {
   const catObjects = Object.keys(data.categories).map((name, index) => ({
     name,
     id: index,
   }));
 
   let [lifes, setLifes] = useState(5);
+  let [isOpen, setIsOpen] = useState(false);
+
   const { id } = useParams();
 
   const category_name = catObjects.find(
@@ -98,17 +101,33 @@ const GameDisplay = () => {
   );
 
   return (
-    <div style={{ display: "flex" }}>
-      <div>
-        {" "}
-        <h1 style={{ fontSize: "1.5rem", color: "#fff" }}>
-          Find one of {category_name}{" "}
-        </h1>
+    <>
+      <div className="game__container" id="modal">
+        <div className="header">
+          <section className="header__container">
+            <div className="back__btn__container" role="link">
+              <span className="logo__container" onClick={() => setIsOpen(true)}>
+                <img src={MenuLogo} alt="menu" />
+              </span>
+            </div>
+            <h1 className="game__title">{category_name}</h1>
+          </section>
+          <section className="header__container">
+            <progress className="lives-progress" value={lifes} max={5} />
+            <img src={HeartLogo} alt="heart" />
+          </section>
+        </div>
+
+        <section
+          className="alphabet__container"
+          style={{ justifyContent: "center" }}
+        >
+          {guessedWord}
+        </section>
+        <section className="alphabet__container"> {listItems}</section>
       </div>
-      <div style={{ color: "#fff", fontSize: 50 }}>{lifes} </div>
-      <section className="alphabet__container"> {guessedWord}</section>
-      <section className="alphabet__container"> {listItems}</section>
-    </div>
+      <MenuModal isOpen={isOpen} setIsOpen={setIsOpen} />
+    </>
   );
 };
 

@@ -1,8 +1,7 @@
 section {
     display: flex;
-    // flex-direction: column;
-    padding: 10%;
-  
+  flex-direction: column;
+  margin: 0 100px;
     .header{
       display: flex;
       align-items: center;

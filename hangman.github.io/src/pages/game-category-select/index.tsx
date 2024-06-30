@@ -24,7 +24,7 @@ function CategoryGamePage() {
   ));
 
   return (
-    <section style={{ display: "flex", flexDirection: "column" }}>
+    <section className="game_select__container">
       <div className="header">
         <Link className="back__btn__container" to="/">
           <img src={BackLogo} alt="back_btn" />

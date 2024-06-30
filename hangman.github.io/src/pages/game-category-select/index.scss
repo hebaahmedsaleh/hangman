@@ -1,9 +1,7 @@
-section {
+.game_select__container {
     display: flex;
-    // flex-direction: column;
+    flex-direction: column;
     width: 80%;
-    // max-width: 80%;
-    // padding-block: 5%;
   
     .header {
       display: flex;
