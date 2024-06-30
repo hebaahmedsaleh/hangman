@@ -1,5 +1,3 @@
-import type { ReactNode } from "react";
-
 import ReactModal from "react-modal";
 import { Link } from "react-router-dom";
 
@@ -15,7 +13,7 @@ function EndGameModal({
   hasWon,
 }: {
   isEndOpen: boolean;
-  setIsEndOpen: (isOpen: boolean) => ReactNode;
+  setIsEndOpen: (isOpen: boolean) => void;
   hasWon: boolean;
 }) {
   return (

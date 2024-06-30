@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import MenuModal from "../menu-modal";
 import EndGameModal from "../game-end-modal";
@@ -35,8 +35,6 @@ function GameDisplay() {
 
   const randomOption =
     options[Math.floor(Math.random() * options.length)]?.name?.split("");
-
-  const wordLength = randomOption.length;
 
   const randomElement = randomOption.map((char: string) => ({
     char: char.toLowerCase(),

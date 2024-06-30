@@ -1,11 +1,8 @@
-import type { ReactNode } from "react";
-
 import ReactModal from "react-modal";
 import { Link } from "react-router-dom";
 
 import "./index.scss";
 import Logo from "@assets/images/Paused.svg";
-import PlayLogo from "@assets/images/icon-play.svg";
 
 ReactModal.setAppElement("#modal");
 
@@ -14,7 +11,7 @@ function MenuModal({
   setIsOpen,
 }: {
   isOpen: boolean;
-  setIsOpen: (isOpen: boolean) => ReactNode;
+  setIsOpen: (isOpen: boolean) => void;
 }) {
   return (
     <ReactModal
