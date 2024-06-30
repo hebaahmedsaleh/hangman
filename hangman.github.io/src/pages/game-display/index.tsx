@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
-import { MenuModal } from "../menu-modal";
+import MenuModal from "../menu-modal";
+import EndGameModal from "../game-end-modal";
+
 import { data } from "../../../data";
 
 import HeartLogo from "@assets/images/icon-heart.svg";
@@ -17,6 +19,8 @@ function GameDisplay() {
 
   let [lifes, setLifes] = useState(5);
   let [isOpen, setIsOpen] = useState(false);
+  let [isEndOpen, setIsEndOpen] = useState(false);
+  let [hasWon, setHasWon] = useState(0);
 
   const { id } = useParams();
 
@@ -32,6 +36,8 @@ function GameDisplay() {
   const randomOption =
     options[Math.floor(Math.random() * options.length)]?.name?.split("");
 
+  const wordLength = randomOption.length;
+
   const randomElement = randomOption.map((char: string) => ({
     char: char.toLowerCase(),
     guessed: false,
@@ -39,7 +45,12 @@ function GameDisplay() {
 
   const [words, setWords] = useState(randomElement);
 
-  console.log({ randomElement });
+  useEffect(() => {
+    if (lifes === 0) {
+      setIsEndOpen(true);
+      setHasWon(2);
+    }
+  }, [lifes]);
 
   const onClick = (char: string) => {
     // both scenario
@@ -62,6 +73,11 @@ function GameDisplay() {
         } else return elem;
       });
       setWords(test);
+
+      if (test.every((t: { guessed: boolean }) => t.guessed)) {
+        setHasWon(1);
+        setIsEndOpen(true);
+      }
     }
     // bad scenario
     else {
@@ -127,8 +143,14 @@ function GameDisplay() {
         <section className="alphabet__container"> {listItems}</section>
       </div>
       <MenuModal isOpen={isOpen} setIsOpen={setIsOpen} />
+
+      <EndGameModal
+        isEndOpen={isEndOpen}
+        setIsEndOpen={setIsEndOpen}
+        hasWon={hasWon === 2 ? false : true}
+      />
     </>
   );
-};
+}
 
 export default GameDisplay;

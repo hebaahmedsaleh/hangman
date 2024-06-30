@@ -4,31 +4,33 @@ import ReactModal from "react-modal";
 import { Link } from "react-router-dom";
 
 import "./index.scss";
-import Logo from "@assets/images/Paused.svg";
-import PlayLogo from "@assets/images/icon-play.svg";
+import LostLogo from "@assets/images/You_Lose.svg";
+import WonLogo from "@assets/images/You_Win.svg";
 
 ReactModal.setAppElement("#modal");
 
-function MenuModal({
-  isOpen,
-  setIsOpen,
+function EndGameModal({
+  isEndOpen,
+  setIsEndOpen,
+  hasWon,
 }: {
-  isOpen: boolean;
-  setIsOpen: (isOpen: boolean) => ReactNode;
+  isEndOpen: boolean;
+  setIsEndOpen: (isOpen: boolean) => ReactNode;
+  hasWon: boolean;
 }) {
   return (
     <ReactModal
-      isOpen={isOpen}
-      contentLabel="Minimal Modal Example"
+      isOpen={isEndOpen}
+      contentLabel="game end Modal Example"
       className="modal"
-      onRequestClose={() => setIsOpen(false)}
+      onRequestClose={() => setIsEndOpen(false)}
       shouldCloseOnOverlayClick={true}
     >
       <div className="content">
-        <img className="title" src={Logo} />
+        <img className="title" src={hasWon ? WonLogo : LostLogo} />
 
-        <button role="link" className="button" onClick={() => setIsOpen(false)}>
-          <div className="hOWTOPLAY">Continue</div>
+        <button onClick={() => window.location.reload()} className="button">
+          <div className="hOWTOPLAY">Play again</div>
         </button>
 
         <button role="link" className="button">
@@ -47,4 +49,4 @@ function MenuModal({
   );
 }
 
-export default MenuModal;
+export default EndGameModal;
