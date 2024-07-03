@@ -1,48 +1,47 @@
+@import "../../common/colors.scss";
+@import "../../common//breakpoints.scss";
+
 .game_select__container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+
+  .header {
     display: flex;
-    flex-direction: column;
-    width: 80%;
-  
-    .header {
+    align-items: center;
+    margin-bottom: 3rem;
+    flex-direction: row;
+
+    .back__btn__container {
+      background-image: $PiViolet_Gradiant;
+      height: 3.5rem;
+      width: 3.5rem;
+      border-radius: 50%;
+      border: 0.0625rem solid transparent;
+      cursor: pointer;
       display: flex;
       align-items: center;
-      margin-bottom: 3rem;
-      flex-direction: row;
-  
-      .back__btn__container {
-        background-image: linear-gradient(to bottom, #fe71fe 0%, #7199ff 100%),
-          linear-gradient(to bottom, #fe71fe 100%, #7199ff 100%);
-        height: 3.5rem;
-        width: 3.5rem;
-        border-radius: 50%;
-        border: 0.0625rem solid transparent;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-  
-      .logo__container {
-        display: flex;
-        flex: 1;
-        justify-content: center;
-        height: 6.3125rem;
-        width: 18.875rem;
-      }
+      justify-content: center;
     }
-  
-    .category__container {
+
+    .logo__container {
       display: flex;
-      flex-wrap: wrap;
-      gap: 1.875rem;
-      justify-content: start;
-      flex-direction: row;
-  
-  
+      flex: 1;
+      justify-content: center;
+      height: 6.3125rem;
+      width: 18.875rem;
+    }
+  }
+
+  .category__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.875rem;
+    justify-content: start;
+    flex-direction: row;
+
     .category__card {
-      outline: 3px solid #5081fa;
-      outline-offset: -4px;
-      background-color: #2463ff;
+      background-color: $Blue;
       border-radius: 1.5rem;
       text-align: center;
       padding: 1rem;
@@ -52,7 +51,6 @@
       align-items: center;
       height: 6.875rem;
       cursor: pointer;
-      border: 2px solid #243041;
       text-decoration: none;
       .description {
         font-size: 2rem;
@@ -60,7 +58,41 @@
         color: #fff;
       }
     }
-  
   }
+}
+
+@media screen and (max-width: $medium) {
+  .game_select__container {
+    align-items: center;
+    padding: 1.5rem;
+    margin: 1rem;
+
+    .header {
+      .logo__container {
+        img {
+          max-width: 70%;
+          max-height: 70%;
+        }
+      }
+    }
+
+    .category__container {
+      .category__card {
+        flex: 0 0 40%;
+      }
+    }
   }
-  
+}
+
+@media screen and (max-width: 37.5rem) {
+  .game_select__container {
+ 
+
+    .category__container {
+      .category__card {
+        flex: 0 0 90%;
+      }
+    }
+
+  }
+}

@@ -15,7 +15,6 @@ function CategoryGamePage() {
   }));
 
   const [categories] = useState(catObjects);
-  console.log(categories);
 
   const listItems = categories.map((elem) => (
     <Link className="category__card" to={`/game/${elem.id}`} key={elem.id}>
