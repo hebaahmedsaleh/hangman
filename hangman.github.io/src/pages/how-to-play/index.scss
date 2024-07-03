@@ -1,64 +1,102 @@
+@import "../../common/breakpoints.scss";
+@import "../../common/colors.scss";
+
 section {
-    display: flex;
+  display: flex;
   flex-direction: column;
   margin: 0 100px;
-    .header{
+  .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+
+    .back__btn__container {
+      background-image: $PiViolet_Gradiant;
+      height: 3.5rem;
+      width: 3.5rem;
+      border-radius: 50%;
+      border: 0.0625rem solid $Black;
+      cursor: pointer;
       display: flex;
       align-items: center;
-      margin-bottom: 3rem;
-  
-      .back__btn__container {
-        background-image: linear-gradient(to bottom, #fe71fe 0%, #7199ff 100%),
-          linear-gradient(to bottom, #fe71fe 100%, #7199ff 100%);
-        height: 3.5rem;
-        width: 3.5rem;
-        border-radius: 50%;
-        border: 0.0625rem solid #000000;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-  
+      justify-content: center;
+    }
+
+    .logo__container {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+    }
+  }
+
+  .steps__container {
+    display: flex;
+    gap: 1.875rem;
+  }
+
+  .step__card {
+    background-color: $White;
+    border-radius: 0.5rem;
+    text-align: center;
+    padding: 2.25rem 1rem;
+    flex: 1;
+
+    .number {
+      font-size: 3rem;
+      color: $Blue;
+      font-weight: 500;
+      margin-bottom: 2rem;
+    }
+
+    .type {
+      font-size: 1.25rem;
+      color: $Dark_Navy;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .description {
+      font-size: 1rem;
+      color: $Purple;
+    }
+  }
+}
+
+@media screen and (max-width: $medium) {
+  section {
+    align-items: center;
+    padding: 1.5rem;
+    margin: 1rem;
+
+    .header {
       .logo__container {
-        display: flex;
-        flex: 1;
-        justify-content: center;
+        img {
+          max-width: 70%;
+          max-height: 70%;
+        }
       }
     }
-  
     .steps__container {
       display: flex;
       gap: 1.875rem;
-    }
-  
-    .step__card {
-      background-color: #fff;
-      border-radius: .5rem;
-      text-align: center;
-      padding: 4.25rem 1rem;
-      flex: 1;
-  
-      .number {
-        font-size: 3rem;
-        color: #2463FF;
-        font-weight: 500;
-        margin-bottom: 2rem;
+      flex-direction: column;
+      max-width: 80%;
+
+      .step__card {
+        padding: 1rem;
+
       }
-  
-      .type {
-        font-size: 1.25rem;
-        color: #261676;
-        text-transform: uppercase;
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-      }
-  
-      .description {
-        font-size: 1rem;
-        color: #887DC0;
-      }
-  
     }
   }
-  
+}
+
+@media screen and (max-width: $small) {
+
+  section {
+    .steps__container {
+      max-width: 95%;
+    }
+  }
+
+}

@@ -1,3 +1,5 @@
+@import '../src/common/breakpoints.scss';
+
 body {
 margin: 0;
 
@@ -9,13 +11,12 @@ main {
   justify-content: center;
   align-items: center;
 
-  #app-home, app-game, app-game-display {
-    width: 100% !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    // padding-top: 10%;
-  }
+  // #app-home, app-game, app-game-display {
+  //   width: 100% !important;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  // }
 
   app-game-display {
     flex-direction: column;
@@ -24,5 +25,13 @@ main {
   }
 
 }
+
+@media screen and (max-width: $medium) {
+  main {
+    min-width: 100%;
+    // height: 100vh;
+  }
+}
+
 
 }
